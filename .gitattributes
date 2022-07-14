@@ -1,2 +1,47 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+fun entrada() {
+    println("Qual a sua idade ?")
+    val idade = readln()
+    if (idade != "") {
+        if (idade.toInt() < 18) {
+            println("Negado. Para menores de idade. ")
+            return
+        }
+
+    }
+    println("qual seu tipo de Convite ?")
+    val tipoDeConvite = readln()
+
+    if (tipoDeConvite != "") {
+        val tipoDeConvite = tipoDeConvite.lowercase()
+
+        if (tipoDeConvite != "comum" && tipoDeConvite != "premium" && tipoDeConvite != "luxo") {
+            println("Negado. Convite invalido")
+            return
+        }
+        if (tipoDeConvite == "comum" || tipoDeConvite == "premium" || tipoDeConvite == "luxo") {
+
+            println("qual o seu codigo do convite ?")
+            var codigo = readln()
+            if (codigo != null && codigo != "") {
+                codigo = codigo.lowercase()
+                if (tipoDeConvite == "comum" && codigo.startsWith("xt")) {
+                    println("welcome :)")
+                } else {
+                    println("Codigo Negado")
+                }
+
+            }
+
+            if (tipoDeConvite == "premium" || tipoDeConvite == "luxo"
+                && codigo.startsWith("xl")
+            ) {
+                println("Welcome :) ")
+            }
+        }
+    }
+}
+
+
+fun main() {
+    entrada()
+}
